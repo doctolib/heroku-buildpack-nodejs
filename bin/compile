@@ -11,12 +11,12 @@ unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
 # This is used by the buildpack stdlib for metrics
 # shellcheck disable=SC2034 
-BPLOG_PREFIX="buildpack.nodejs"
+BPLOG_PREFIX="buildpack.nodejs.zipper"
 
 ### Configure directories
 
-BUILD_DIR="/app/zipper"
-CACHE_DIR=${2:-}
+BUILD_DIR=${1:-}/zipper
+CACHE_DIR=${2:-}zipper
 ENV_DIR=${3:-}
 BP_DIR=$(cd "$(dirname "${0:-}")"; cd ..; pwd)
 STDLIB_FILE=$(mktemp -t stdlib.XXXXX)
